@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          {process.env.SERVER}
+          {process.env.REACT_APP_SERVER}
         </p>
         <a
           className="App-link"
