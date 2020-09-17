@@ -18,6 +18,9 @@ jobs:
       matrix:
         node-version: [12.x]
 
+    env:
+      SERVER: "Vercel"
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
