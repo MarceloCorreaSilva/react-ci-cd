@@ -18,9 +18,6 @@ jobs:
       matrix:
         node-version: [12.x]
 
-    env:
-      REACT_APP_SERVER: "Vercel"
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -47,4 +44,6 @@ jobs:
         vercel-args: '--prod' #Optional
         vercel-org-id: ${{ secrets.VERCEL_TOKEN_ORG_ID}}  #Required
         vercel-project-id: ${{ secrets.VERCEL_TOKEN_PROJECT_ID}} #Required 
+      env:
+        REACT_APP_SERVER: "Vercel"
         # working-directory: ./
