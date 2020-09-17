@@ -10,7 +10,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  build-and-deploy:
 
     runs-on: ubuntu-latest
 
@@ -36,17 +36,12 @@ jobs:
     - name: Build
       run: npm run build
       
-  deploy:
-    
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Deploy
-        uses: amondnet/vercel-action@v19
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
-          github-token: ${{ secrets.GITHUB_TOKEN }} #Optional 
-          vercel-args: '--prod' #Optional
-          vercel-org-id: ${{ secrets.VERCEL_TOKEN_ORG_ID}}  #Required
-          vercel-project-id: ${{ secrets.VERCEL_TOKEN_PROJECT_ID}} #Required 
-          working-directory: ./build
+    - name: Deploy
+      uses: amondnet/vercel-action@v19
+      with:
+        vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+        github-token: ${{ secrets.GITHUB_TOKEN }} #Optional 
+        vercel-args: '--prod' #Optional
+        vercel-org-id: ${{ secrets.VERCEL_TOKEN_ORG_ID}}  #Required
+        vercel-project-id: ${{ secrets.VERCEL_TOKEN_PROJECT_ID}} #Required 
+        # working-directory: ./
