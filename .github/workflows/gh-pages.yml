@@ -19,7 +19,7 @@ jobs:
         node-version: [12.x]
 
     env:
-      SERVER: "GitHub Pages"
+      REACT_APP_SERVER: "GitHub Pages"
 
     steps:
     - name: Checkout repository

@@ -19,7 +19,7 @@ jobs:
         node-version: [12.x]
 
     env:
-      SERVER: "Vercel"
+      REACT_APP_SERVER: "Vercel"
 
     steps:
     - name: Checkout repository
