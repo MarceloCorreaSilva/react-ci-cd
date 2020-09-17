@@ -18,6 +18,10 @@ jobs:
       matrix:
         node-version: [12.x]
 
+    env:
+      REACT_APP_APP_NAME: "React App on GitHub Pages"
+      REACT_APP_SERVER: "GitHub Pages"
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -54,4 +58,3 @@ jobs:
         user_email: 'github-actions[bot]@users.noreply.github.com'
         github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
         repository: ${{ github.repository }}
-        REACT_APP_SERVER: "GitHub Pages"
