@@ -26,7 +26,14 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-                
+    
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: |
+          **/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
     - name: Install dependencies
       run: yarn
       
@@ -44,6 +51,5 @@ jobs:
         vercel-args: '--prod' #Optional
         vercel-org-id: ${{ secrets.VERCEL_TOKEN_ORG_ID}}  #Required
         vercel-project-id: ${{ secrets.VERCEL_TOKEN_PROJECT_ID}} #Required 
-      env:
         REACT_APP_SERVER: "Vercel"
         # working-directory: ./
