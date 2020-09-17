@@ -37,11 +37,11 @@ jobs:
     - name: Install dependencies
       run: yarn
       
-    # - name: Run the tests
-    #   run: yarn test
+    - name: Run the tests
+      run: yarn test
       
-    # - name: Build
-    #   run: yarn build
+    - name: Build
+      run: yarn build
       
     - name: Deploy
       uses: amondnet/vercel-action@v19
@@ -51,5 +51,6 @@ jobs:
         vercel-args: '--prod' #Optional
         vercel-org-id: ${{ secrets.VERCEL_TOKEN_ORG_ID}}  #Required
         vercel-project-id: ${{ secrets.VERCEL_TOKEN_PROJECT_ID}} #Required 
+      env:
         REACT_APP_SERVER: "Vercel"
         # working-directory: ./
